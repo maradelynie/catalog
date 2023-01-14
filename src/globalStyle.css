@@ -4,6 +4,7 @@
   --darkblue: #114B5F;
   --lightgrey: #F4F5F9;
   --midgrey: #e4e4e4;
+  --red: #F45B69;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -59,13 +60,30 @@ h1{
     font-size: 2.3rem;
     font-weight: bold;
 }
+h2{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
 h3{
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 1rem;
 }
+
+hr{
+    border: 1px solid var(--lightgrey);
+}
+small{
+    color: var(--lightblue);
+    font-size: .8rem;
+
+}
+
 .mainpage_container{
     display: flex;
     justify-content: center;
-    padding: 0 2rem ;
+    max-width: var(--container);
+    margin: auto;
+    align-items: flex-start;
 }
