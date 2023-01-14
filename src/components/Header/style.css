@@ -1,0 +1,26 @@
+.pageheader{
+  background-color: #29B6C8;
+  background: linear-gradient(176deg, #29B6C8 0%, #4E9FBE 100%);
+  color: white;
+  padding: 0 2rem ;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 .2rem 1rem rgba(0, 0, 0, 0.16);
+}
+.pageheader_container{
+  width: 100%;
+  max-width: 70rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pageheader_container ul{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pageheader_container li+li{
+  margin-left: 1rem;
+}
