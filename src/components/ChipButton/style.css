@@ -1,0 +1,28 @@
+.productspage_filtersection{
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.chipfilter_container button{
+  background-color: var(--lightgrey);
+  color: var(--darkblue);
+  border: none;
+  height: 2rem;
+  border-radius: .3rem;
+  min-width: 2rem;
+  cursor: pointer;
+  margin: .3rem .5rem;
+  transition-duration: .2s;
+  outline: 0.4rem solid white;
+}
+.chipfilter_container span{
+ margin-right: 1rem;
+}
+.chipfilter_container button:hover{
+  background-color: var(--red);
+  color: white;
+}
+.chipfilter_container button:active{
+  background-color: var(--lightgrey);
+}

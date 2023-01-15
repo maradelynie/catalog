@@ -1,0 +1,115 @@
+.productspage_productcard{
+  background-color: var(--lightgrey);
+  width: 13rem;
+  margin-bottom: 1.5rem;
+  border-radius: .5rem;
+  overflow: hidden;
+  outline: 0.4rem solid white;
+}
+.productspage_productcard.list{
+  width: 100%;
+  margin-bottom: 1.5rem;
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  height: 6rem;
+}
+.productspage_productimage {
+  height: 8rem;
+  overflow: hidden;
+}
+.productspage_productimage.list {
+  height: unset;
+}
+
+.productspage_productimage img{
+  width: 100%;
+}
+.productspage_productimage.list img{
+  object-fit: cover;
+  width: unset;
+  height: 6rem;
+}
+
+
+
+
+
+
+
+
+.productspage_productinfo{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  height: calc(100% - 8rem);
+}
+.productspage_productinfo.list{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 8rem 3rem;
+  flex-direction: unset;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5rem;
+  height: unset;
+
+}
+.productspage_productinfo p{
+  margin-bottom: 1rem ;
+}
+.productspage_productinfo.list div{
+  max-width: 32rem;
+  width: 100%;
+}
+.productspage_productinfo.list p{
+  margin-bottom: .5rem ;
+  
+}
+.productspage_productinfo.list h3{
+  margin-bottom: .3rem;
+}
+.productspage_productinfo h2{
+  margin-bottom: 0;
+}
+.productspage_productinfo button{
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+.productspage_productinfo.list button{
+  position: unset;
+}
+
+@media screen and (max-width: 800px) {
+  .productspage_productimage {
+    height: 6rem;
+  }
+  .productspage_productcard{
+    width: 10rem;
+  }
+  .productspage_productcard.list{
+    grid-template-columns: 5rem 1fr;
+  }
+  .productspage_productinfo.list{
+    grid-template-columns: 1fr 5rem 2rem;
+  }
+  .productspage_productinfo p{
+    font-size: .8rem;
+  }
+  .productspage_productinfo.list p{
+    display: none;
+  }
+  .productspage_productinfo h3{
+    font-size: 1.1rem;
+  }
+  .productspage_productinfo h2{
+    font-size: 1.3rem;
+  }
+  .productspage_productinfo button{
+  position: absolute;
+  bottom: -1.5rem;
+  right: .3rem;
+}
+}

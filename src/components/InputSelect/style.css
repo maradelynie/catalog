@@ -1,0 +1,45 @@
+.inputSelect_container {
+  position: relative;
+}
+.inputSelect_container.lg {
+  width: 100%;
+}
+.inputSelect_container label{
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.inputSelect_container select{
+  border: none;
+  padding: .5rem 1rem .5rem 0;
+  line-height: .7rem;
+  border-radius: 1.5rem;
+  color: var(--darktblue);
+  outline-color: var(--darktblue);
+  outline: 0.4rem solid white;
+}
+.inputSelect_container select::placeholder{
+  color: var(--lightblue);
+}
+.inputSelect_container  .sm{
+  width: 5rem;
+}
+.inputSelect_container .md{
+  width: 14rem;
+}
+.inputSelect_container .lg{
+  width: 100%;
+}
+.inputSelect_container .dark{
+  background-color: var(--lightgrey);
+}
+.inputSelect_container .icon{
+  padding-left: 2.3rem;
+}
+.inputSelect_icon{
+  color: var(--lightblue);
+  position: absolute;
+  left: 1rem;
+  top:.5rem;
+  pointer-events: none;
+}

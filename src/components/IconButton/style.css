@@ -1,0 +1,36 @@
+.iconButton_container{
+  background-color: var(--lightblue);
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  height: 2rem;
+  min-width: 2rem;
+  cursor: pointer;
+  transition-duration: .2s;
+}
+.iconButton_container.danger{
+   background-color: var(--red);
+}
+.iconButton_container.neutral{
+   background-color: var(--midgrey);
+   color: unset;
+  outline: 0.4rem solid white;
+}
+.iconButton_container:disabled{
+  pointer-events: none;
+}
+.iconButton_container.lg{
+  height: 2.5rem;
+  min-width: 2.5rem;
+}
+
+.iconButton_container.danger:active{
+   background-color: var(--lightgrey);
+}
+
+.iconButton_container:hover{
+  opacity: .7;
+}
+.iconButton_container:active{
+  opacity: 1;
+}
