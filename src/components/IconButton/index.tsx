@@ -4,13 +4,24 @@ import './style.css';
 
 type IconButtonProps = {
   icon: ReactNode;
-  type?: 'danger';
+  type?: 'danger' | 'neutral';
   size?: 'lg';
+  disabled?: boolean;
 };
 
-export default function IconButton({ icon, type, size }: IconButtonProps) {
+export default function IconButton({
+  icon,
+  type,
+  size,
+  disabled
+}: IconButtonProps) {
   const buttonStyle = (type ? type : '') + ' ' + (size ? size : '');
   return (
-    <button className={'iconButton_container ' + buttonStyle}>{icon}</button>
+    <button
+      disabled={disabled}
+      className={'iconButton_container ' + buttonStyle}
+    >
+      {icon}
+    </button>
   );
 }
