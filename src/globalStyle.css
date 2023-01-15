@@ -79,6 +79,30 @@ small{
     font-size: .8rem;
 
 }
+button {
+    background-color: var(--lightblue);
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    height: 2rem;
+    padding: 0 1rem;
+    cursor: pointer;
+    transition-duration: .2s;
+    white-space: nowrap;
+}
+button:hover{
+  opacity: .7;
+}
+button:active{
+  opacity: 1;
+}
+a {
+    color: var(--lightblue);
+}
+h5 {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
 
 .mainpage_container{
     display: flex;

@@ -14,6 +14,7 @@ import IconButton from '../../components/IconButton';
 import ChipButton from '../../components/ChipButton';
 import ProductCard from '../../components/ProductCard';
 import FilterSidebar from '../../components/FilterSidebar';
+import NavigationBar from '../../components/NavigationBar';
 
 export default function Products() {
   const mock = [
@@ -509,6 +510,8 @@ export default function Products() {
             );
           })}
         </main>
+        <hr />
+        <NavigationBar page={2} />
       </div>
     </>
   );

@@ -6,6 +6,7 @@
 }
 .chipfilter_container button{
   background-color: var(--lightgrey);
+  color: var(--darkblue);
   border: none;
   height: 2rem;
   border-radius: .3rem;
