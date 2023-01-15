@@ -6,13 +6,14 @@ import {
   faTrash
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import InputText from '../InputText';
+import InputText from '../../components/InputText';
 
 import './style.css';
-import InputSelect from '../InputSelect';
-import IconButton from '../IconButton';
-import ChipButton from '../ChipButton';
-import ProductCard from '../ProductCard';
+import InputSelect from '../../components/InputSelect';
+import IconButton from '../../components/IconButton';
+import ChipButton from '../../components/ChipButton';
+import ProductCard from '../../components/ProductCard';
+import FilterSidebar from '../../components/FilterSidebar';
 
 export default function Products() {
   const mock = [
@@ -446,66 +447,69 @@ export default function Products() {
     }
   ];
   return (
-    <div className="productspage_container">
-      <section className="productspage_searchsection">
-        <InputText
-          label="Search"
-          id="products_input"
-          size="lg"
-          style="dark"
-          icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}
-        />
-        <div className="productspage_searchsection_select">
-          <InputSelect
+    <>
+      <FilterSidebar />
+      <div className="productspage_container">
+        <section className="productspage_searchsection">
+          <InputText
             label="Search"
             id="products_input"
             size="lg"
             style="dark"
-            icon={<FontAwesomeIcon icon={faArrowDownWideShort} />}
-            options={orderOptions}
+            icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}
           />
-          <IconButton icon={<FontAwesomeIcon icon={faList} />} />
-        </div>
-      </section>
-      <hr />
-      {filterApplied.length ? (
-        <>
-          <section className="productspage_filtersection">
-            <div className="chipfilter_container">
-              {filterApplied.map(filters => {
-                return (
-                  <React.Fragment key={filters.id}>
-                    <ChipButton id={filters.id} title={filters.title} />
-                  </React.Fragment>
-                );
-              })}
-            </div>
-
-            <IconButton
-              type={'danger'}
-              icon={<FontAwesomeIcon icon={faTrash} />}
+          <div className="productspage_searchsection_select">
+            <InputSelect
+              label="Search"
+              id="products_input"
+              size="lg"
+              style="dark"
+              icon={<FontAwesomeIcon icon={faArrowDownWideShort} />}
+              options={orderOptions}
             />
-          </section>
-          <hr />
-        </>
-      ) : (
-        <></>
-      )}
-      <main className="productspage_productlist">
-        {mock.map(productCard => {
-          return (
-            <React.Fragment key={productCard.id}>
-              <ProductCard
-                description={productCard.description}
-                title={productCard.title}
-                images={productCard.images}
-                id={productCard.id}
-                price={productCard.price}
+            <IconButton icon={<FontAwesomeIcon icon={faList} />} />
+          </div>
+        </section>
+        <hr />
+        {filterApplied.length ? (
+          <>
+            <section className="productspage_filtersection">
+              <div className="chipfilter_container">
+                {filterApplied.map(filters => {
+                  return (
+                    <React.Fragment key={filters.id}>
+                      <ChipButton id={filters.id} title={filters.title} />
+                    </React.Fragment>
+                  );
+                })}
+              </div>
+
+              <IconButton
+                type={'danger'}
+                icon={<FontAwesomeIcon icon={faTrash} />}
               />
-            </React.Fragment>
-          );
-        })}
-      </main>
-    </div>
+            </section>
+            <hr />
+          </>
+        ) : (
+          <></>
+        )}
+        <main className="productspage_productlist">
+          {mock.map(productCard => {
+            return (
+              <React.Fragment key={productCard.id}>
+                <ProductCard
+                  description={productCard.description}
+                  title={productCard.title}
+                  images={productCard.images}
+                  id={productCard.id}
+                  price={productCard.price}
+                />
+              </React.Fragment>
+            );
+          })}
+        </main>
+      </div>
+    </>
   );
 }

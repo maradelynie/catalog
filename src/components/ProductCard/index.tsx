@@ -1,6 +1,7 @@
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import IconButton from '../IconButton';
 
 import './style.css';
@@ -12,7 +13,6 @@ type ProductCardProps = {
   description: string;
   price: number;
   list?: boolean;
-
 };
 
 export default function ProductCard({
@@ -23,9 +23,13 @@ export default function ProductCard({
   price,
   list
 }: ProductCardProps) {
+  const navigate = useNavigate();
   const listStyle = list ? 'list' : '';
   return (
-    <div className={'productspage_productcard ' + listStyle}>
+    <div
+      className={'productspage_productcard ' + listStyle}
+      onClick={() => navigate('/product/' + id)}
+    >
       <section className={'productspage_productimage ' + listStyle}>
         <img src={images[0]} alt={title} />
       </section>

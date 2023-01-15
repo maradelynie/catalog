@@ -1,0 +1,7 @@
+.productdetail_container{
+  position: relative;
+  margin-top: 4.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
