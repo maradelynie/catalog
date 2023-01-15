@@ -17,6 +17,7 @@
   border-radius: 1.5rem;
   color: var(--darktblue);
   outline-color: var(--darktblue);
+  outline: 0.4rem solid white;
 }
 .inputText_container input::placeholder{
   color: var(--lightblue);
@@ -37,5 +38,6 @@
   color: var(--lightblue);
   position: absolute;
   left: 1rem;
-  top:.5rem
+  top:.5rem;
+  pointer-events: none;
 }

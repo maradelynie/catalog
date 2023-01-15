@@ -4,6 +4,7 @@
   margin-bottom: 1.5rem;
   border-radius: .5rem;
   overflow: hidden;
+  outline: 0.4rem solid white;
 }
 .productspage_productcard.list{
   width: 100%;

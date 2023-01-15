@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import './globalStyle.css';
 import Footer from './components/Footer';
 import Router from './router';
+import Background from './components/Background';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -17,6 +18,7 @@ root.render(
       <Router />
     </div>
     <Footer />
+    <Background />
   </React.StrictMode>
 );
 
