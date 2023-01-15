@@ -27,9 +27,8 @@ export default function InputSelect({
 }: inputSelectProps) {
   const inputStyle = (icon ? 'icon ' : '') + size + ' ' + style;
   return (
-    <div className="inputSelect_container ">
+    <div className={'inputSelect_container ' + inputStyle}>
       {icon ? <div className="inputSelect_icon">{icon}</div> : <></>}
-      {/* <label htmlFor={id + '_' + label}>{label}</label> */}
       <select
         className={'inputSelect ' + inputStyle}
         name={id + '_' + label}

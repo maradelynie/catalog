@@ -1,7 +1,7 @@
 .inputSelect_container {
   position: relative;
 }
-.inputText_container.lg {
+.inputSelect_container.lg {
   width: 100%;
 }
 .inputSelect_container label{
