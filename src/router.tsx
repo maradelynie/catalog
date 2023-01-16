@@ -1,5 +1,6 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
 import Product from './view/Product';
 import Products from './view/Products';
 
@@ -9,7 +10,7 @@ const router = createBrowserRouter([
     element: <Products />
   },
   {
-    path: '/product/:id',
+    path: '/product/:productId',
     element: <Product />
   }
 ]);

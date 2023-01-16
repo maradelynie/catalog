@@ -13,6 +13,8 @@
   background-color: var(--lightblue);
   height: .4rem;
   display: block;
+  pointer-events: none;
+  transition: all .3s;
 }
 .progressbar_container span::after{
   background-color: var(--lightblue);
@@ -53,3 +55,12 @@
   }
 
 }
+@media screen and (max-width: 400px) {
+  .productspage_productlist {
+    flex-wrap: nowrap;
+    flex-direction: column;
+
+  }
+  
+}
+

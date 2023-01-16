@@ -6,12 +6,13 @@ import './style.css';
 
 type ChipButtonProps = {
   title: string;
-  id: number | string;
+  id: string;
+  onClick: (id: string) => void;
 };
 
-export default function ChipButton({ title, id }: ChipButtonProps) {
+export default function ChipButton({ title, id, onClick }: ChipButtonProps) {
   return (
-    <button key={id} className="productspage_filtersection">
+    <button onClick={() => onClick(id)} key={id}>
       <span>{title}</span>
       <FontAwesomeIcon icon={faTimes} />
     </button>

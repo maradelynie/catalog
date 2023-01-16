@@ -2,6 +2,7 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import IconButton from '../IconButton';
 
 import './style.css';
@@ -41,9 +42,10 @@ export default function ProductCard({
         </div>
         <div>
           <small>Price</small>
-          <h2>$ {price.toFixed(2)}</h2>
+          <h3>$ {price.toFixed(2)}</h3>
         </div>
         <IconButton
+          onClick={() => null}
           size="lg"
           icon={<FontAwesomeIcon icon={faCartShopping} size="lg" />}
         />

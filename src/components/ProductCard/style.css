@@ -5,6 +5,11 @@
   border-radius: .5rem;
   overflow: hidden;
   outline: 0.4rem solid white;
+  cursor: pointer;
+  transition: all .5s;
+}
+.productspage_productcard:hover{
+ transform: scale(1.05);
 }
 .productspage_productcard.list{
   width: 100%;
@@ -112,4 +117,13 @@
   bottom: -1.5rem;
   right: .3rem;
 }
+}
+
+@media screen and (max-width: 400px) {
+  .productspage_productcard{
+    width: 100%;
+  }
+  .productspage_productinfo button {
+    bottom: 1rem;
+  }
 }

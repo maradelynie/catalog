@@ -1,24 +1,41 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { QueryClient } from 'react-query';
+import { QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
+import './globalStyle.css';
+import Background from './components/Background';
+import Footer from './components/Footer';
 import Header from './components/Header/index';
 import reportWebVitals from './reportWebVitals';
-import './globalStyle.css';
-import Footer from './components/Footer';
 import Router from './router';
-import Background from './components/Background';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 0
+    }
+  }
+});
+
 root.render(
   <React.StrictMode>
-    <div className="mainpage_container">
-      <Header />
-      <Router />
-    </div>
-    <Footer />
-    <Background />
+    <QueryClientProvider client={queryClient}>
+      <>
+        <div className="mainpage_container">
+          <Header />
+          <Router />
+        </div>
+        <Footer />
+        <Background />
+      </>
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   </React.StrictMode>
 );
 

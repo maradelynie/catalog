@@ -4,7 +4,15 @@ import Checkbox from './index';
 import userEvent from '@testing-library/user-event';
 
 test('renders learn react link', () => {
-  render(<Checkbox label="testelabel" id="testeid" />);
+  const mockOnClick = jest.fn();
+  render(
+    <Checkbox
+      label="testelabel"
+      id="testeid"
+      checked={true}
+      onClick={mockOnClick}
+    />
+  );
 
   const checkbox: HTMLInputElement = screen.getByTestId('testeid_testelabel');
   const label = screen.getByText('testelabel');
@@ -16,9 +24,9 @@ test('renders learn react link', () => {
 
   userEvent.click(checkbox);
 
-  expect(checkbox.checked).toBeTruthy();
+  expect(mockOnClick).toHaveBeenCalledTimes(1);
 
   userEvent.click(label);
 
-  expect(checkbox.checked).not.toBeTruthy();
+  expect(mockOnClick).toHaveBeenCalledTimes(2);
 });

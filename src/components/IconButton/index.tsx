@@ -7,17 +7,24 @@ type IconButtonProps = {
   type?: 'danger' | 'neutral';
   size?: 'lg';
   disabled?: boolean;
+  // eslint-disable-next-line
+  onClick: (event?: any) => void;
+  className?: string;
 };
 
 export default function IconButton({
   icon,
   type,
   size,
-  disabled
+  disabled,
+  onClick,
+  className
 }: IconButtonProps) {
-  const buttonStyle = (type ? type : '') + ' ' + (size ? size : '');
+  const buttonStyle =
+    (type ? type : '') + ' ' + (size ? size : '') + ' ' + className;
   return (
     <button
+      onClick={onClick}
       disabled={disabled}
       className={'iconButton_container ' + buttonStyle}
     >
