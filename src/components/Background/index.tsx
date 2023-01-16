@@ -1,12 +1,28 @@
 import React from 'react';
+import * as theme from '../../theme';
+import styled from 'styled-components';
 
 import './style.css';
+
+type FreeFormType = {
+  type: number;
+};
+
+const FreeForm = styled.span<FreeFormType>`
+  position: absolute;
+  fill: ${theme.lightblue};
+  height: 100vh;
+  left: ${props => (props.type === 3 ? '' : '-60rem')};
+  top: ${props =>
+    props.type === 1 ? '-10rem' : props.type === 2 ? '-60rem' : '0'};
+  right: ${props => (props.type === 3 ? '-10rem' : '')};
+`;
 
 export default function Background() {
   return (
     <div className="background_container">
       <div className="background_right">
-        <span className="background_animation animationA">
+        <FreeForm type={1}>
           <svg
             preserveAspectRatio="none"
             width="200%"
@@ -26,8 +42,8 @@ export default function Background() {
               />
             </g>
           </svg>
-        </span>
-        <span className="background_animation animationB">
+        </FreeForm>
+        <FreeForm type={2}>
           <svg
             preserveAspectRatio="none"
             width="200%"
@@ -47,10 +63,10 @@ export default function Background() {
               />
             </g>
           </svg>
-        </span>
+        </FreeForm>
       </div>
 
-      <span className="background_animation animationC">
+      <FreeForm type={3}>
         <svg
           preserveAspectRatio="none"
           width="200%"
@@ -70,8 +86,8 @@ export default function Background() {
             />
           </g>
         </svg>
-      </span>
-      <span className="background_animation animationC">
+      </FreeForm>
+      <FreeForm type={3}>
         <svg
           preserveAspectRatio="none"
           width="200%"
@@ -91,7 +107,7 @@ export default function Background() {
             />
           </g>
         </svg>
-      </span>
+      </FreeForm>
     </div>
   );
 }
