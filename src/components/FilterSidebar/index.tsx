@@ -15,6 +15,8 @@ type FilterSidebarProps = {
   updateCategoryFilter: (category: CategoriesI) => void;
   closeAside: () => void;
   mobileAside: boolean;
+  maxState: { max: number; setMax: (max: number) => void };
+  minState: { min: number; setMin: (min: number) => void };
 };
 
 export default function FilterSidebar({
@@ -22,12 +24,13 @@ export default function FilterSidebar({
   filteredCategory,
   updateCategoryFilter,
   closeAside,
-  mobileAside
+  mobileAside,
+  maxState,
+  minState
 }: FilterSidebarProps) {
-  const [max, setMax] = useState<number>(10000);
-  const [min, setMin] = useState<number>(0);
+  const { max, setMax } = maxState;
+  const { min, setMin } = minState;
 
-  // since the API does not have an totalMaxValue search it will be added manualy
   const limit = 10000;
 
   const handleMinChange = (value: string) => {

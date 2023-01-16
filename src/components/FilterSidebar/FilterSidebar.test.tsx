@@ -12,6 +12,8 @@ test('renders learn react link', () => {
       updateCategoryFilter={category => null}
       closeAside={mockOnClick}
       mobileAside={true}
+      maxState={{ max: 0, setMax: (max: number) => null }}
+      minState={{ min: 0, setMin: (max: number) => null }}
     />
   );
 

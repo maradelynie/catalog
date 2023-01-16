@@ -10,12 +10,16 @@ export const getProducts = async (productId: string) => {
 };
 export const getProductsPagination = async (
   page: number,
-  categoryFilter: CategoriesI | null
+  categoryFilter: CategoriesI | null,
+  max:number, 
+  min :number
 ) => {
   const category = categoryFilter ? `&categoryId=${categoryFilter.id}` : '';
+  const priceMax = max < 10000 ? `&price_max=${max}` : '';
+  const priceMin = min ? `&price_min=${min}` : '';
 
   const { data } = await apiConfig.sendWithAxios(
-    `products?offset=${page * 20 - 20}&limit=20` + category,
+    `products?offset=${page * 20 - 20}&limit=20` + category + priceMax + priceMin,
     'GET'
   );
   return data;
