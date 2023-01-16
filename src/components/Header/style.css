@@ -28,3 +28,12 @@
 .pageheader_container li+li{
   margin-left: 1rem;
 }
+
+.pageheader_container li{
+  cursor: pointer;
+  transform: .2s;
+}
+.pageheader_container li:hover{
+  cursor: pointer;
+  color: var(--red);
+}

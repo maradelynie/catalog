@@ -67,15 +67,17 @@ export default function ProductCard({ item, list }: ProductCardProps) {
           <small>Price</small>
           <h3>$ {item.price.toFixed(2)}</h3>
         </div>
-        <IconButton
-          onClick={() => null}
-          size="lg"
-          icon={<FontAwesomeIcon icon={faCartShopping} size="lg" />}
-        />
+        <div className={'favoritebutton_container ' + listStyle}>
+          <FavoriteButton active={isFavorite} onClick={handleFavorite} />
+        </div>
+        <div className={'cartbutton_container ' + listStyle}>
+          <IconButton
+            onClick={() => null}
+            size="lg"
+            icon={<FontAwesomeIcon icon={faCartShopping} size="lg" />}
+          />
+        </div>
       </section>
-      <div className="favoritebutton_container">
-        <FavoriteButton active={isFavorite} onClick={handleFavorite} />
-      </div>
     </div>
   );
 }

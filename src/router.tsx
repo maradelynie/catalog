@@ -1,5 +1,7 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Header from './components/Header';
+import Favorites from './view/Favorites';
 
 import Product from './view/Product';
 import Products from './view/Products';
@@ -7,11 +9,31 @@ import Products from './view/Products';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Products />
+    element: (
+      <>
+        <Header />
+        <Products />
+      </>
+    )
   },
   {
     path: '/product/:productId',
-    element: <Product />
+
+    element: (
+      <>
+        <Header />
+        <Product />
+      </>
+    )
+  },
+  {
+    path: '/favorites',
+    element: (
+      <>
+        <Header />
+        <Favorites />
+      </>
+    )
   }
 ]);
 

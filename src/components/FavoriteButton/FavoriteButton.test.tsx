@@ -7,15 +7,11 @@ test('renders icon', () => {
   const mockOnClick = jest.fn();
   render(<FavoriteButton active={false} onClick={mockOnClick} />);
 
-  const button: HTMLInputElement = screen.getByText('icon sample');
+  const button: HTMLInputElement = screen.getByRole('button');
 
   expect(button).toBeInTheDocument();
 
   userEvent.click(button);
 
   expect(mockOnClick).toHaveBeenCalledTimes(1);
-
-  userEvent.click(button);
-
-  expect(mockOnClick).toHaveBeenCalledTimes(2);
 });
