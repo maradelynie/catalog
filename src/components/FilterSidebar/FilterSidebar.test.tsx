@@ -8,8 +8,8 @@ test('renders learn react link', () => {
   render(
     <FilterSidebar
       categoryData={[]}
-      filteredCategory={[]}
-      updateCategoryFilter={id => null}
+      filteredCategory={null}
+      updateCategoryFilter={category => null}
       closeAside={mockOnClick}
       mobileAside={true}
     />

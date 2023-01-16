@@ -1,6 +1,7 @@
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
+
 import { CategoriesI } from '../../models/interfaces';
 import Checkbox from '../Checkbox';
 import InputText from '../InputText';
@@ -10,8 +11,8 @@ import './style.css';
 
 type FilterSidebarProps = {
   categoryData: CategoriesI[];
-  filteredCategory: string[];
-  updateCategoryFilter: (id: string) => void;
+  filteredCategory: CategoriesI | null;
+  updateCategoryFilter: (category: CategoriesI) => void;
   closeAside: () => void;
   mobileAside: boolean;
 };
@@ -76,8 +77,8 @@ export default function FilterSidebar({
             return (
               <li key={category.id}>
                 <Checkbox
-                  checked={filteredCategory.includes(category.id.toString())}
-                  onClick={() => updateCategoryFilter(category.id.toString())}
+                  checked={filteredCategory?.id === category.id}
+                  onClick={() => updateCategoryFilter(category)}
                   label={category.name}
                   id={category.id}
                 />

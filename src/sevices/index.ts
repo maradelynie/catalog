@@ -1,3 +1,4 @@
+import { CategoriesI } from '../models/interfaces';
 import * as apiConfig from './apiConfig';
 
 export const getProducts = async (productId: string) => {
@@ -7,9 +8,14 @@ export const getProducts = async (productId: string) => {
   );
   return data;
 };
-export const getProductsPagination = async (page: number) => {
+export const getProductsPagination = async (
+  page: number,
+  categoryFilter: CategoriesI | null
+) => {
+  const category = categoryFilter ? `&categoryId=${categoryFilter.id}` : '';
+
   const { data } = await apiConfig.sendWithAxios(
-    `products?offset=${page * 20 - 20}&limit=20`,
+    `products?offset=${page * 20 - 20}&limit=20` + category,
     'GET'
   );
   return data;
@@ -46,6 +52,7 @@ export const getProductsReview = async (productId: string) => {
       date: new Date('2023/01/05')
     }
   ];
+  // eslint-disable-next-line
   const { data } = await new Promise<{ data: any }>(res => {
     setTimeout(() => {
       res({ data: dataReview });

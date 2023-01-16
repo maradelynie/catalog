@@ -7,6 +7,7 @@ type IconButtonProps = {
   type?: 'danger' | 'neutral';
   size?: 'lg';
   disabled?: boolean;
+  // eslint-disable-next-line
   onClick: (event?: any) => void;
   className?: string;
 };
