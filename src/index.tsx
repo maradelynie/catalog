@@ -28,7 +28,6 @@ root.render(
     <QueryClientProvider client={queryClient}>
       <>
         <div className="mainpage_container">
-          <Header />
           <Router />
         </div>
         <Footer />

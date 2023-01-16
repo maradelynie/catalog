@@ -1,0 +1,20 @@
+button.favoritebutton{
+  background-color: transparent;
+  padding: 0;
+  font-size: larger;
+  color: var(--midgrey);
+  margin: auto;
+}
+.favoritebutton:hover{
+  color: var(--red)
+}
+.favoritebutton .fill{
+  color: var(--red)
+}
+
+@media screen and (max-width: 800px) {
+
+  .favoritebutton{
+    top: 5rem;
+  }
+}

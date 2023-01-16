@@ -11,9 +11,14 @@ import './style.css';
 type NavigationBarProps = {
   page: number;
   setPage: (page: number) => void;
+  lastPage?: number;
 };
 
-export default function NavigationBar({ page, setPage }: NavigationBarProps) {
+export default function NavigationBar({
+  page,
+  setPage,
+  lastPage
+}: NavigationBarProps) {
   //as the pages number are hardcoded on backend and I dont have a api data of the total amount it need to be hardcoded here
 
   return (
@@ -51,7 +56,7 @@ export default function NavigationBar({ page, setPage }: NavigationBarProps) {
       ) : (
         <></>
       )}
-      {page + 1 <= 10 ? (
+      {page + 1 <= (lastPage || 10) ? (
         <IconButton
           onClick={() => setPage(page + 1)}
           type="neutral"
@@ -60,7 +65,7 @@ export default function NavigationBar({ page, setPage }: NavigationBarProps) {
       ) : (
         <></>
       )}
-      {page + 2 <= 10 ? (
+      {page + 2 <= (lastPage || 10) ? (
         <IconButton
           onClick={() => setPage(page + 2)}
           type="neutral"
@@ -69,8 +74,8 @@ export default function NavigationBar({ page, setPage }: NavigationBarProps) {
       ) : (
         <></>
       )}
-      {page + 2 <= 10 ? <h5>...</h5> : <></>}
-      {page < 10 ? (
+      {page + 2 <= (lastPage || 10) ? <h5>...</h5> : <></>}
+      {page < (lastPage || 10) ? (
         <IconButton
           onClick={() => setPage(page + 1)}
           type="neutral"

@@ -5,11 +5,12 @@
   border-radius: .5rem;
   overflow: hidden;
   outline: 0.4rem solid white;
-  cursor: pointer;
+  position: relative;
   transition: all .5s;
 }
 .productspage_productcard:hover{
  transform: scale(1.05);
+ z-index: 1;
 }
 .productspage_productcard.list{
   width: 100%;
@@ -34,13 +35,23 @@
   width: unset;
   height: 6rem;
 }
+.favoritebutton_container{
+  position: absolute;
+  right: .5rem;
+  top: -7.5rem;
+  width: 1rem;
+  border: .15rem var(--red) solid;
+  border-radius: 100%;
+  height: 2.5rem;
+  width: 2.5rem;
+  padding: 0;
+  display: flex;
+}
 
-
-
-
-
-
-
+.favoritebutton_container.list{
+  align-items: center;
+  position: static;
+}
 
 .productspage_productinfo{
   position: relative;
@@ -50,10 +61,13 @@
   padding: 1rem;
   height: calc(100% - 8rem);
 }
+.productspage_productitle{
+  cursor: pointer;
+}
 .productspage_productinfo.list{
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 8rem 3rem;
+  grid-template-columns: 1fr 8rem 4rem 4rem;
   flex-direction: unset;
   align-items: center;
   justify-content: space-between;
@@ -66,7 +80,6 @@
 }
 .productspage_productinfo.list div{
   max-width: 32rem;
-  width: 100%;
 }
 .productspage_productinfo.list p{
   margin-bottom: .5rem ;
@@ -78,14 +91,16 @@
 .productspage_productinfo h2{
   margin-bottom: 0;
 }
-.productspage_productinfo button{
+.cartbutton_container button{
   position: absolute;
   bottom: 1rem;
   right: 1rem;
 }
-.productspage_productinfo.list button{
-  position: unset;
+
+.cartbutton_container.list button{
+  position: static;
 }
+
 
 @media screen and (max-width: 800px) {
   .productspage_productimage {
@@ -112,18 +127,29 @@
   .productspage_productinfo h2{
     font-size: 1.3rem;
   }
-  .productspage_productinfo button{
+  .cartbutton_container button{
   position: absolute;
   bottom: -1.5rem;
   right: .3rem;
-}
+  }
+  .favoritebutton_container{
+    top:-5.5rem;
+  }
+    .productspage_productinfo.list{
+    grid-template-columns: 50% 4rem 3rem 3rem;
+  }
 }
 
 @media screen and (max-width: 400px) {
   .productspage_productcard{
     width: 100%;
   }
-  .productspage_productinfo button {
+    .productspage_productinfo.list{
+    grid-template-columns: 30% 4rem 3rem 3rem;
+  }
+
+  .cartbutton_container button {
     bottom: 1rem;
   }
+ 
 }
