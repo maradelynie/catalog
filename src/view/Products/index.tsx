@@ -255,14 +255,7 @@ export default function Products() {
           {productList?.map(productCard => {
             return (
               <React.Fragment key={productCard.id}>
-                <ProductCard
-                  list={listVisualization}
-                  description={productCard.description}
-                  title={productCard.title}
-                  images={productCard.images}
-                  id={productCard.id}
-                  price={productCard.price}
-                />
+                <ProductCard list={listVisualization} item={productCard} />
               </React.Fragment>
             );
           })}

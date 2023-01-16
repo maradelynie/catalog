@@ -5,11 +5,12 @@
   border-radius: .5rem;
   overflow: hidden;
   outline: 0.4rem solid white;
-  cursor: pointer;
+  position: relative;
   transition: all .5s;
 }
 .productspage_productcard:hover{
  transform: scale(1.05);
+ z-index: 1;
 }
 .productspage_productcard.list{
   width: 100%;
@@ -34,6 +35,12 @@
   width: unset;
   height: 6rem;
 }
+.favoritebutton_container{
+  position: absolute;
+  right: 2rem;
+  top: 0rem;
+  width: 1rem;
+}
 
 
 
@@ -49,6 +56,9 @@
   justify-content: space-between;
   padding: 1rem;
   height: calc(100% - 8rem);
+}
+.productspage_productitle{
+  cursor: pointer;
 }
 .productspage_productinfo.list{
   position: relative;

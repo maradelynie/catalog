@@ -1,0 +1,11 @@
+button.favoritebutton{
+  background-color: transparent;
+  padding: 1rem;
+  font-size: larger;
+}
+.favoritebutton:hover{
+  color: var(--red)
+}
+.favoritebutton .fill{
+  color: var(--red)
+}
