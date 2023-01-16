@@ -3,7 +3,13 @@ import { render, screen } from '@testing-library/react';
 import FilterSidebar from './index';
 
 test('renders learn react link', () => {
-  render(<FilterSidebar />);
+  render(
+    <FilterSidebar
+      categoryData={[]}
+      filteredCategory={[]}
+      updateCategoryFilter={id => null}
+    />
+  );
 
   const price = screen.getByText('Price');
   const category = screen.getByText('Category');

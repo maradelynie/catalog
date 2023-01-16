@@ -13,6 +13,12 @@
   justify-content: space-between;
   margin-bottom: .5rem;
 }
+.filtersidebar .inputText_container{
+  width: 4.5rem;
+}
+.filtersidebar .inputText_container input{
+  width: 100%;
+}
 .filtersidebar_closebutton{
     display: none;
     position: absolute;

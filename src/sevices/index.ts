@@ -7,6 +7,25 @@ export const getProducts = async (productId: string) => {
   );
   return data;
 };
+export const getProductsPagination = async (page: number) => {
+  const { data } = await apiConfig.sendWithAxios(
+    `products?offset=${page * 20 - 20}&limit=20`,
+    'GET'
+  );
+  return data;
+};
+export const getProductsCategories = async () => {
+  const { data } = await apiConfig.sendWithAxios(`categories`, 'GET');
+  return data;
+};
+export const getProductsFilters = async (filters: string[]) => {
+  const route = filters.reduce((add, filter, index) => {
+    if (index) return add + '&categoryId=' + filter;
+    else return add + 'categoryId=' + filter;
+  }, 'products?');
+  const { data } = await apiConfig.sendWithAxios(route, 'GET');
+  return data;
+};
 export const getProductsReview = async (productId: string) => {
   const dataReview = [
     {
