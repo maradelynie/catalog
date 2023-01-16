@@ -35,10 +35,18 @@ export default function Products() {
   const [max, setMax] = useState<number>(limit);
   const [min, setMin] = useState<number>(0);
 
+  const [search, setSearch] = useState<string>('');
+
   const productsData = useQuery<ProductI[]>(
-    ['products', page, filteredCategory, max, min],
-    () => getProductsPagination(page, filteredCategory, max, min)
+    ['products', page, filteredCategory, max, min, search],
+    () => getProductsPagination(page, filteredCategory, max, min, search)
   );
+
+  const handleChangeSearch = (value: string) => {
+    if (value.length > 3 || !value) {
+      setSearch(value);
+    }
+  };
 
   const categoryData = useQuery<CategoriesI[]>(['categories'], () =>
     getProductsCategories()
@@ -76,7 +84,7 @@ export default function Products() {
         <section className="productspage_searchsection">
           <InputText
             label="Search"
-            onChange={() => ''}
+            onChange={value => handleChangeSearch(value)}
             id="products_search_input"
             style="dark"
             icon={<FontAwesomeIcon icon={faMagnifyingGlass} />}
@@ -103,7 +111,7 @@ export default function Products() {
           </div>
         </section>
         <hr />
-        {filteredCategory || min || max < limit ? (
+        {filteredCategory || min || max < limit || search ? (
           <>
             <section className="productspage_filtersection">
               <div className="chipfilter_container">
@@ -112,6 +120,16 @@ export default function Products() {
                     onClick={() => setFilteredCategory(null)}
                     id={filteredCategory.id}
                     title={filteredCategory.name}
+                  />
+                ) : (
+                  <></>
+                )}
+
+                {search ? (
+                  <ChipButton
+                    onClick={() => setSearch('')}
+                    id={'titleSearch'}
+                    title={'Title ' + search}
                   />
                 ) : (
                   <></>
