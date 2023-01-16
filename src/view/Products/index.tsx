@@ -7,7 +7,7 @@ import {
   faTrash
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 
 import './style.css';
@@ -16,16 +16,48 @@ import FilterSidebar from '../../components/FilterSidebar';
 import IconButton from '../../components/IconButton';
 import InputSelect from '../../components/InputSelect';
 import InputText from '../../components/InputText';
-import NavigationBar from '../../components/NavigationBar';
 import Loading from '../../components/Loading';
+import NavigationBar from '../../components/NavigationBar';
 import ProductCard from '../../components/ProductCard';
 import { CategoriesI, ProductI } from '../../models/interfaces';
 import { getProductsCategories, getProductsPagination } from '../../sevices';
+
+const orderOptions = [
+  {
+    id: 1,
+    label: 'A to Z tilte',
+    value: 'za'
+  },
+  {
+    id: 2,
+    label: 'Z to A tilte',
+    value: 'az'
+  },
+  {
+    id: 3,
+    label: 'Price lowest to highest',
+    value: 'priceLowest'
+  },
+  {
+    id: 4,
+
+    label: 'Price highest to lowest',
+    value: 'priceHighest'
+  }
+];
+
+type sort = {
+  id: number;
+  label: string;
+  value: string;
+};
 
 export default function Products() {
   const limit = 10000;
   const [listVisualization, setListVisualization] = useState(false);
   const [mobileAside, setMobileAside] = useState(false);
+  const [productList, setProductList] = useState<ProductI[]>([]);
+  const [sortStatus, setSortStatus] = useState<sort | null>(null);
 
   const [page, setPage] = useState(1);
   const [filteredCategory, setFilteredCategory] = useState<CategoriesI | null>(
@@ -56,18 +88,61 @@ export default function Products() {
     setMin(0);
     setFilteredCategory(null);
   };
-  const orderOptions = [
-    {
-      id: 1,
-      label: 'Price lowest to highest',
-      value: 'priceLowest'
-    },
-    {
-      id: 2,
-      label: 'Price highest to lowest',
-      value: 'priceHighest'
+
+  const handleSort = (sortSelected: sort, oldList?: ProductI[]) => {
+    setSortStatus(sortSelected);
+    const newList = [...(oldList || productList)];
+    if (sortSelected.id === 1)
+      newList.sort(function (a, b) {
+        if (a.title > b.title) {
+          return 1;
+        }
+        if (a.title < b.title) {
+          return -1;
+        }
+        return 0;
+      });
+    else if (sortSelected.id === 2)
+      newList.sort(function (a, b) {
+        if (a.title > b.title) {
+          return -1;
+        }
+        if (a.title < b.title) {
+          return 1;
+        }
+        return 0;
+      });
+    else if (sortSelected.id === 3)
+      newList.sort(function (a, b) {
+        if (a.price > b.price) {
+          return 1;
+        }
+        if (a.price < b.price) {
+          return -1;
+        }
+        return 0;
+      });
+    else
+      newList.sort(function (a, b) {
+        if (a.price > b.price) {
+          return -1;
+        }
+        if (a.price < b.price) {
+          return 1;
+        }
+        return 0;
+      });
+
+    setProductList(newList);
+  };
+
+  useEffect(() => {
+    if (productsData.data) {
+      if (sortStatus) handleSort(sortStatus, productsData.data);
+      else setProductList(productsData.data);
     }
-  ];
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [productsData.data]);
 
   return (
     <>
@@ -96,6 +171,7 @@ export default function Products() {
               style="dark"
               icon={<FontAwesomeIcon icon={faArrowDownWideShort} />}
               options={orderOptions}
+              onChange={handleSort}
             />
             <IconButton
               onClick={() => setListVisualization(!listVisualization)}
@@ -176,7 +252,7 @@ export default function Products() {
             'productspage_productlist ' + (listVisualization ? 'list' : '')
           }
         >
-          {productsData.data?.map(productCard => {
+          {productList?.map(productCard => {
             return (
               <React.Fragment key={productCard.id}>
                 <ProductCard

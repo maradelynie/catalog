@@ -11,8 +11,8 @@ export const getProducts = async (productId: string) => {
 export const getProductsPagination = async (
   page: number,
   categoryFilter: CategoriesI | null,
-  max:number, 
-  min :number,
+  max: number,
+  min: number,
   search: string
 ) => {
   const category = categoryFilter ? `&categoryId=${categoryFilter.id}` : '';
@@ -21,7 +21,11 @@ export const getProductsPagination = async (
   const searchText = search ? `&title=${search}` : '';
 
   const { data } = await apiConfig.sendWithAxios(
-    `products?offset=${page * 20 - 20}&limit=20` + category + priceMax + priceMin + searchText,
+    `products?offset=${page * 20 - 20}&limit=20` +
+      category +
+      priceMax +
+      priceMin +
+      searchText,
     'GET'
   );
   return data;

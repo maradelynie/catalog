@@ -14,6 +14,8 @@ type inputSelectProps = {
   style?: 'dark';
   icon?: ReactNode;
   options: optionType[] | [];
+  // eslint-disable-next-line
+  onChange: (selected: any) => void;
 };
 
 export default function InputSelect({
@@ -21,6 +23,7 @@ export default function InputSelect({
   id,
   style,
   icon,
+  onChange,
   options
 }: inputSelectProps) {
   const inputStyle = (icon ? 'icon ' : '') + ' ' + style;
@@ -34,13 +37,18 @@ export default function InputSelect({
         data-testid={id + '_' + label}
         placeholder={label}
         defaultValue={''}
+        onChange={e =>
+          onChange(
+            options.find(option => option.id.toString() === e.target.value)
+          )
+        }
       >
         <option value="" disabled>
           {label}
         </option>
         {options.map((option, index) => {
           return (
-            <option key={id + '_' + index} value={option.value}>
+            <option key={id + '_' + index} value={option.id}>
               {option.label}
             </option>
           );

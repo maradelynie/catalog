@@ -9,6 +9,7 @@ test('renders select with icon', () => {
       id="testeid"
       options={[{ id: 1, value: 'value', label: 'label' }]}
       icon={<p>icon sample</p>}
+      onChange={() => null}
     />
   );
 
