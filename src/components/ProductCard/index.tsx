@@ -44,6 +44,7 @@ export default function ProductCard({
           <h2>$ {price.toFixed(2)}</h2>
         </div>
         <IconButton
+          onClick={() => null}
           size="lg"
           icon={<FontAwesomeIcon icon={faCartShopping} size="lg" />}
         />

@@ -1,7 +1,5 @@
 .inputText_container {
   position: relative;
-}
-.inputText_container.lg {
   width: 100%;
 }
 
@@ -11,6 +9,7 @@
   pointer-events: none;
 }
 .inputText_container input{
+  width: 100%;
   border: none;
   padding: .5rem 1rem;
   line-height: .7rem;
@@ -22,12 +21,7 @@
 .inputText_container input::placeholder{
   color: var(--lightblue);
 }
-.inputText_container  .sm{
-  width: 5rem;
-}
-.inputText_container .lg{
-  width: 100%;
-}
+
 .inputText_container .dark{
   background-color: var(--lightgrey);
 }

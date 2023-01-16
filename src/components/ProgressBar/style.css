@@ -13,6 +13,7 @@
   background-color: var(--lightblue);
   height: .4rem;
   display: block;
+  pointer-events: none;
 }
 .progressbar_container span::after{
   background-color: var(--lightblue);

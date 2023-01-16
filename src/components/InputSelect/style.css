@@ -1,7 +1,5 @@
 .inputSelect_container {
   position: relative;
-}
-.inputSelect_container.lg {
   width: 100%;
 }
 .inputSelect_container label{
@@ -10,6 +8,7 @@
   pointer-events: none;
 }
 .inputSelect_container select{
+  width: 100%;
   border: none;
   padding: .5rem 1rem .5rem 0;
   line-height: .7rem;
@@ -21,15 +20,7 @@
 .inputSelect_container select::placeholder{
   color: var(--lightblue);
 }
-.inputSelect_container  .sm{
-  width: 5rem;
-}
-.inputSelect_container .md{
-  width: 14rem;
-}
-.inputSelect_container .lg{
-  width: 100%;
-}
+
 .inputSelect_container .dark{
   background-color: var(--lightgrey);
 }

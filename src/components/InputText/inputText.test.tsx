@@ -4,7 +4,7 @@ import InputText from './index';
 import userEvent from '@testing-library/user-event';
 
 test('renders learn react link', () => {
-  render(<InputText label="testelabel" id="testeid" size="sm" />);
+  render(<InputText label="testelabel" id="testeid" onChange={() => ''} />);
 
   const input: HTMLInputElement = screen.getByTestId('testeid_testelabel');
   const label = screen.getByText('testelabel');

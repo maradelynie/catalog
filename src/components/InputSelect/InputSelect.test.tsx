@@ -7,7 +7,6 @@ test('renders select with icon', () => {
     <InputSelect
       label="testelabel"
       id="testeid"
-      size="lg"
       options={[{ id: 1, value: 'value', label: 'label' }]}
       icon={<p>icon sample</p>}
     />

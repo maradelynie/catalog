@@ -11,7 +11,6 @@ type optionType = {
 type inputSelectProps = {
   label: string;
   id: number | string;
-  size: 'sm' | 'md' | 'lg';
   style?: 'dark';
   icon?: ReactNode;
   options: optionType[] | [];
@@ -20,12 +19,11 @@ type inputSelectProps = {
 export default function InputSelect({
   label,
   id,
-  size,
   style,
   icon,
   options
 }: inputSelectProps) {
-  const inputStyle = (icon ? 'icon ' : '') + size + ' ' + style;
+  const inputStyle = (icon ? 'icon ' : '') + ' ' + style;
   return (
     <div className={'inputSelect_container ' + inputStyle}>
       {icon ? <div className="inputSelect_icon">{icon}</div> : <></>}
@@ -35,13 +33,14 @@ export default function InputSelect({
         id={id + '_' + label}
         data-testid={id + '_' + label}
         placeholder={label}
+        defaultValue={''}
       >
-        <option value="" disabled selected>
+        <option value="" disabled>
           {label}
         </option>
-        {options.map(option => {
+        {options.map((option, index) => {
           return (
-            <option key={id} value={option.value}>
+            <option key={id + '_' + index} value={option.value}>
               {option.label}
             </option>
           );

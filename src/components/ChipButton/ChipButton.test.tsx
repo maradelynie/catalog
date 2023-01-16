@@ -1,11 +1,19 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Checkbox from './index';
+import ChipButton from './index';
+import userEvent from '@testing-library/user-event';
 
 test('renders label of chip', () => {
-  render(<Checkbox title="testelabel" id="testeid" />);
+  const mockOnClick = jest.fn();
+  render(<ChipButton title="testelabel" id="testeid" onClick={mockOnClick} />);
 
   const label = screen.getByText('testelabel');
 
-  expect(label).toBeInTheDocument();
+  userEvent.click(label);
+
+  expect(mockOnClick).toHaveBeenCalledTimes(1);
+
+  userEvent.click(label);
+
+  expect(mockOnClick).toHaveBeenCalledTimes(2);
 });
