@@ -41,7 +41,7 @@ export default function ProductCard({
         </div>
         <div>
           <small>Price</small>
-          <h2>$ {price.toFixed(2)}</h2>
+          <h3>$ {price.toFixed(2)}</h3>
         </div>
         <IconButton
           onClick={() => null}

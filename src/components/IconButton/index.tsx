@@ -8,6 +8,7 @@ type IconButtonProps = {
   size?: 'lg';
   disabled?: boolean;
   onClick: (event?: any) => void;
+  className?: string;
 };
 
 export default function IconButton({
@@ -15,9 +16,11 @@ export default function IconButton({
   type,
   size,
   disabled,
-  onClick
+  onClick,
+  className
 }: IconButtonProps) {
-  const buttonStyle = (type ? type : '') + ' ' + (size ? size : '');
+  const buttonStyle =
+    (type ? type : '') + ' ' + (size ? size : '') + ' ' + className;
   return (
     <button
       onClick={onClick}

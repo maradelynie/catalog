@@ -25,3 +25,10 @@ export interface ReviewI {
     date: Date;
     score: number;
 }
+
+export interface CategoriesI {
+    id: string;
+    name: string;
+    image: string;
+    checked?:boolean;
+}
