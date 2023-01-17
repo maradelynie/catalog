@@ -1,13 +1,14 @@
 import styled, { createGlobalStyle } from 'styled-components';
+import { container, darkblue, lightblue, lightgrey, midgrey, red } from './themeVariables';
  
 const GlobalStyle = createGlobalStyle`
 :root {
-  --container: 70rem;
-  --lightblue: #29B6C8;
-  --darkblue: #114B5F;
-  --lightgrey: #F4F5F9;
-  --midgrey: #e4e4e4;
-  --red: #F45B69;
+  --container: ${container};
+  --lightblue: ${lightblue};
+  --darkblue: ${darkblue};
+  --lightgrey: ${lightgrey};
+  --midgrey: ${midgrey};
+  --red: ${red};
 }
   html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,

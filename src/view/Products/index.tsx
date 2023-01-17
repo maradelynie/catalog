@@ -179,11 +179,12 @@ export default function Products() {
                 <FontAwesomeIcon icon={listVisualization ? faTable : faList} />
               }
             />
-            <IconButton
-              className={'filtercategory_button'}
-              onClick={() => setMobileAside(!mobileAside)}
-              icon={<FontAwesomeIcon icon={faFilter} />}
-            />
+            <span className={'filtercategory_button'}>
+              <IconButton
+                onClick={() => setMobileAside(!mobileAside)}
+                icon={<FontAwesomeIcon icon={faFilter} />}
+              />
+            </span>
           </div>
         </section>
         <hr />

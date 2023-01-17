@@ -54,4 +54,8 @@ export const FiltersidebarInputContainer = styled.section`
    align-items: center;
    justify-content: space-between;
    margin-bottom: .5rem;
+  white-space: nowrap;
+  span {
+    margin: .6rem;
+  }
 `;

@@ -4,15 +4,28 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import styled from 'styled-components';
 import IconButton from '../IconButton';
-
-import './style.css';
 
 type NavigationBarProps = {
   page: number;
   setPage: (page: number) => void;
   lastPage?: number;
 };
+
+const NavigationBarContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+
+  button + button {
+    margin-left: 0.5rem;
+  }
+  h5 {
+    margin: 0 0.5rem;
+  }
+`;
 
 export default function NavigationBar({
   page,
@@ -22,7 +35,7 @@ export default function NavigationBar({
   //as the pages number are hardcoded on backend and I dont have a api data of the total amount it need to be hardcoded here
 
   return (
-    <div className="navigationbar_container">
+    <NavigationBarContainer className="navigationbar_container">
       {page > 1 ? (
         <IconButton
           onClick={() => setPage(page - 1)}
@@ -84,6 +97,6 @@ export default function NavigationBar({
       ) : (
         <></>
       )}
-    </div>
+    </NavigationBarContainer>
   );
 }

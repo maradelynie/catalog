@@ -36,6 +36,12 @@
   display: flex;
   flex-direction: column;
 }
+.productspage_filtersection{
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 @media screen and (max-width: 800px) {
   .productspage_searchsection{
