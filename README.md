@@ -5,12 +5,12 @@ More info below;
 
 ## Preview 
 
-[check it here](catalog-iota.vercel.app)
+[check it here](https://catalog-iota.vercel.app)
 
 ![](https://github.com/maradelynie/catalog/blob/master/catalog.png)
 
 ### Next step
-- Add Styled components (please read the author comments)
+- ✔️Add Styled components
 - Coverage greater than 80%
 - Cart feature
 
@@ -60,8 +60,6 @@ It needed some adjusts again and as I read the documentations I discover some li
 - There is no favorite API so favorite products are saved at localStorage.
 - There ir react-query devtools set so you will see an icon on the bottom left. You can click and see cache and page update as it runs.
 - I did not use UI or auto-animate libraries to have more control of the visual effects, everything was done with pure CSS.
-
-- MY FALUT, I did read, but completely forgot the Styled Components requirement so I did not use till the finalization of the application. I'm rushing to correct that.
 
 ### Any issue, please send me asap
 Help me to make it better :)
