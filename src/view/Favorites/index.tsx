@@ -7,7 +7,6 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 
-import './style.css';
 import IconButton from '../../components/IconButton';
 import InputSelect from '../../components/InputSelect';
 import InputText from '../../components/InputText';

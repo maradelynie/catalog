@@ -10,7 +10,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 
-import './style.css';
 import ChipButton from '../../components/ChipButton';
 import FilterSidebar from '../../components/FilterSidebar';
 import IconButton from '../../components/IconButton';
@@ -21,6 +20,7 @@ import NavigationBar from '../../components/NavigationBar';
 import ProductCard from '../../components/ProductCard';
 import { CategoriesI, ProductI } from '../../models/interfaces';
 import { getProductsCategories, getProductsPagination } from '../../sevices';
+import styled from 'styled-components';
 
 const orderOptions = [
   {
@@ -51,6 +51,70 @@ type sort = {
   label: string;
   value: string;
 };
+
+const ProductsContainer = styled.div`
+  margin-left: 1.5rem;
+  margin-top: 4.5rem;
+  width: 100%;
+  .productspage_searchsection {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+    margin-bottom: 1rem;
+  }
+  .productspage_searchsection div {
+    width: 100%;
+    display: flex;
+  }
+
+  .productspage_productlist {
+    margin: 2rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .productspage_searchsection_select {
+    padding-left: 0.5rem;
+  }
+
+  .productspage_searchsection_select div + button {
+    margin-left: 0.5rem;
+  }
+  .filtercategory_button {
+    margin-left: 0.5rem;
+    display: none;
+  }
+  .productspage_productlist.list {
+    margin: 2rem 0 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .productspage_filtersection {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 800px) {
+    & {
+      margin-left: 0;
+      padding: 0 1rem;
+    }
+    .productspage_searchsection {
+      display: flex;
+      flex-direction: column;
+    }
+    .productspage_searchsection div + div {
+      margin: 0;
+      margin-top: 0.5rem;
+    }
+
+    .filtercategory_button {
+      display: block;
+    }
+  }
+`;
 
 export default function Products() {
   const limit = 10000;
@@ -155,7 +219,7 @@ export default function Products() {
         closeAside={() => setMobileAside(!mobileAside)}
         mobileAside={mobileAside}
       />
-      <div className="productspage_container">
+      <ProductsContainer className="productspage_container">
         <section className="productspage_searchsection">
           <InputText
             label="Search"
@@ -263,7 +327,7 @@ export default function Products() {
         </main>
         <hr />
         <NavigationBar page={page} setPage={setPage} />
-      </div>
+      </ProductsContainer>
     </>
   );
 }
