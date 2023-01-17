@@ -6,8 +6,7 @@ import { CategoriesI } from '../../models/interfaces';
 import Checkbox from '../Checkbox';
 import InputText from '../InputText';
 import RangeBar from '../ProgressBar';
-
-import './style.css';
+import { FiltersidebarContainer, FiltersidebarInputContainer } from './style';
 
 type FilterSidebarProps = {
   categoryData: CategoriesI[];
@@ -49,9 +48,9 @@ export default function FilterSidebar({
 
   return (
     <>
-      <aside className={'filtersidebar ' + (mobileAside ? '' : 'hide')}>
+      <FiltersidebarContainer hide={mobileAside}>
         <h3>Price</h3>
-        <section className="filtersidebar_inputprice_container">
+        <FiltersidebarInputContainer>
           <InputText
             onChange={handleMinChange}
             value={min}
@@ -65,7 +64,7 @@ export default function FilterSidebar({
             label="highest"
             id="price_input"
           />
-        </section>
+        </FiltersidebarInputContainer>
         <RangeBar
           setMax={setMax}
           setMin={setMin}
@@ -95,7 +94,7 @@ export default function FilterSidebar({
             icon={faTimes}
           />
         </div>
-      </aside>
+      </FiltersidebarContainer>
     </>
   );
 }
