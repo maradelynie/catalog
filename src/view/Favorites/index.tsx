@@ -53,15 +53,12 @@ export default function Favorites() {
 
   const [page, setPage] = useState(1);
 
-  const [search, setSearch] = useState<string>('');
-
   const handleChangeSearch = (value: string) => {
     setFilteredProducts(
       productList.filter(product =>
         product.title.toLocaleLowerCase().includes(value.toLocaleLowerCase())
       )
     );
-    setSearch(value);
   };
 
   const handleSort = (sortSelected: sort) => {

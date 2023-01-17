@@ -1,8 +1,5 @@
 import React from 'react';
-import * as theme from '../../theme';
 import styled from 'styled-components';
-
-import './style.css';
 
 type FreeFormType = {
   type: number;
@@ -10,18 +7,35 @@ type FreeFormType = {
 
 const FreeForm = styled.span<FreeFormType>`
   position: absolute;
-  fill: ${theme.lightblue};
+  fill: var(--lightblue);
   height: 100vh;
   left: ${props => (props.type === 3 ? '' : '-60rem')};
   top: ${props =>
-    props.type === 1 ? '-10rem' : props.type === 2 ? '-60rem' : '0'};
+    props.type === 1 ? '-10rem' : props.type === 2 ? '10rem' : '0'};
   right: ${props => (props.type === 3 ? '-10rem' : '')};
+
+  animation: ${props =>
+    props.type === 1
+      ? 'wave 30s -1s ease alternate infinite;'
+      : 'wave 25s -1s ease-in-out alternate-reverse infinite;'};
+`;
+
+const BackgroundContainer = styled.div`
+  opacity: 0.8;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  pointer-events: none;
 `;
 
 export default function Background() {
   return (
-    <div className="background_container">
-      <div className="background_right">
+    <BackgroundContainer>
+      <div>
         <FreeForm type={1}>
           <svg
             preserveAspectRatio="none"
@@ -108,6 +122,6 @@ export default function Background() {
           </g>
         </svg>
       </FreeForm>
-    </div>
+    </BackgroundContainer>
   );
 }
