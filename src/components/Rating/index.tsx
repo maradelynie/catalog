@@ -1,13 +1,29 @@
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-
-import './style.css';
+import styled from 'styled-components';
 
 type RatingProps = {
   score: number;
   small?: boolean;
 };
+
+const RatingContainer = styled.div`
+  position: relative;
+  display: inline-flex;
+  align-items: flex-end;
+  margin-bottom: 0.5rem;
+
+  svg {
+    color: gold;
+  }
+  svg.neutral {
+    color: var(--midgrey);
+  }
+  p {
+    margin: 0 1rem;
+  }
+`;
 
 export default function Rating({ score, small }: RatingProps) {
   const renderStar = () => {
@@ -29,9 +45,9 @@ export default function Rating({ score, small }: RatingProps) {
     });
   };
   return (
-    <div className="rating_container">
+    <RatingContainer className="rating_container">
       {renderStar()}
       {!small ? <p>{score.toFixed(1)}</p> : <></>}
-    </div>
+    </RatingContainer>
   );
 }

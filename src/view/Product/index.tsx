@@ -8,13 +8,58 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import './style.css';
 
 import Loading from '../../components/Loading';
 import Rating from '../../components/Rating';
 import Review from '../../components/Review';
 import { ProductI, ReviewI } from '../../models/interfaces';
 import { getProducts, getProductsReview } from '../../sevices';
+import styled from 'styled-components';
+
+const ProductContainer = styled.div`
+  position: relative;
+  margin-top: 4.5rem;
+  width: 100%;
+  justify-content: center;
+  padding: 0 2rem;
+  main {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+  }
+  .productdetail_header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .productswiper_container {
+    border-radius: 2rem;
+    max-width: 40rem;
+    overflow: hidden;
+  }
+  .productdetail_info {
+    margin-left: 1rem;
+  }
+  .productdetail_details p {
+    margin: 1rem 0;
+  }
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+  }
+  .swiper-slide-active {
+    z-index: 5;
+  }
+  @media screen and (max-width: 800px) {
+    & main {
+      display: flex;
+      flex-direction: column;
+    }
+    .productdetail_info {
+      margin: 0rem;
+      margin-top: 1rem;
+    }
+  }
+`;
 
 export default function Product() {
   const { productId } = useParams();
@@ -27,7 +72,7 @@ export default function Product() {
   );
 
   return (
-    <div className="productdetail_container">
+    <ProductContainer className="productdetail_container">
       <Link to={'/'}>Catalog </Link> &gt; {productData.data?.title}
       {productData.data ? (
         <main>
@@ -90,6 +135,6 @@ export default function Product() {
       ) : (
         <Loading error={productData.isError} loading={productData.isLoading} />
       )}
-    </div>
+    </ProductContainer>
   );
 }

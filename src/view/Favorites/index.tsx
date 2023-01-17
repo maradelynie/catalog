@@ -7,7 +7,6 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 
-import './style.css';
 import IconButton from '../../components/IconButton';
 import InputSelect from '../../components/InputSelect';
 import InputText from '../../components/InputText';
@@ -53,15 +52,12 @@ export default function Favorites() {
 
   const [page, setPage] = useState(1);
 
-  const [search, setSearch] = useState<string>('');
-
   const handleChangeSearch = (value: string) => {
     setFilteredProducts(
       productList.filter(product =>
         product.title.toLocaleLowerCase().includes(value.toLocaleLowerCase())
       )
     );
-    setSearch(value);
   };
 
   const handleSort = (sortSelected: sort) => {

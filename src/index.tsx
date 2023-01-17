@@ -3,11 +3,10 @@ import ReactDOM from 'react-dom/client';
 import { QueryClient } from 'react-query';
 import { QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import GlobalStyle, { GlobalContainer } from './theme/globalStyle';
 
-import './globalStyle.css';
 import Background from './components/Background';
 import Footer from './components/Footer';
-import Header from './components/Header/index';
 import reportWebVitals from './reportWebVitals';
 import Router from './router';
 
@@ -27,9 +26,10 @@ root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <>
-        <div className="mainpage_container">
+        <GlobalStyle />
+        <GlobalContainer>
           <Router />
-        </div>
+        </GlobalContainer>
         <Footer />
         <Background />
       </>

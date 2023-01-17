@@ -6,8 +6,7 @@ import { ProductI } from '../../models/interfaces';
 import FavoriteButton from '../FavoriteButton';
 
 import IconButton from '../IconButton';
-
-import './style.css';
+import { ProductCardContainerProps } from './style';
 
 type ProductCardProps = {
   item: ProductI;
@@ -48,7 +47,7 @@ export default function ProductCard({ item, list }: ProductCardProps) {
   };
 
   return (
-    <div className={'productspage_productcard ' + listStyle}>
+    <ProductCardContainerProps list={!!listStyle}>
       <section className={'productspage_productimage ' + listStyle}>
         <img src={item.images[0]} alt={item.title} />
       </section>
@@ -78,6 +77,6 @@ export default function ProductCard({ item, list }: ProductCardProps) {
           />
         </div>
       </section>
-    </div>
+    </ProductCardContainerProps>
   );
 }
